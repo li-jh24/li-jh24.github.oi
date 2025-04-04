@@ -1,0 +1,82 @@
+<!-- character.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>山鼠</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 档案页专属样式 */
+        .character-page {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: rgba(219, 207, 192);
+            border-radius: 60px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 30px; /* 整体下移内容 */
+        }
+
+        .character-img {
+            width: 300px;
+            flex-shrink: 0;
+            border-radius: 0px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 20px; /* 图片额外下移 */
+        }
+
+        .profile-text {
+            line-height: 1.8;  /* 加大行距 */
+            font-size: 16px;
+        }
+
+        .profile-text p {
+            margin-bottom: 2rem;  /* 段落间距 */
+        }
+
+        .back-btn {
+            display: block;
+            width: 120px;
+            margin: 30px auto 0;
+            text-align: center;
+            padding: 10px 20px;
+            background: #dbcfc0;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .character-img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="character-page">
+        <h1>🐹 山鼠</h1>
+        <div class="content-wrapper">
+            <img src="images/character.png" class="character-img">
+            <div class="profile-text">
+                <h3>品种：小黑耗子</h3>
+                <p>爱好：吃饱睡好 B站刷刷刷到厌倦</p>
+                <p>没事的时候最喜欢在自己的小床上躺着，有点小拖延，喜欢卡DDL但从未失手</p>
+                <p>特殊技能：三分钟内完成三天的工作量</p>
+                <p>最常说："我再刷最后一个视频就学习！"</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-btn">返回游戏</a>
+    </div>
+</body>
+</html>

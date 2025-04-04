@@ -1,0 +1,347 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ce9a58;
+    font-family: "微软雅黑", sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* 游戏主容器 */
+.game-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgb(219, 207, 192);
+    padding: 90px;
+    border-radius: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 场景文字 */
+.scene-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+    min-height: 80px;
+}
+
+/* 选项按钮容器 */
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* 单个选项按钮 */
+.option-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+    width: 240px; /* 固定按钮宽度 */
+}
+
+.option-button:hover {
+    transform: scale(1.05);
+}
+
+/* 表情包图片样式 */
+.option-button img {
+    width: 100%; /* 图片填满按钮 */
+    height: auto;
+    border-radius: 8px;
+    border: 0px solid #ddd;
+}
+
+/* 首页样式 */
+.homepage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .homepage h1 {
+    font-size: 4rem;
+    color: #ffd700;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(255,215,0,0.5);
+  }
+  .homepage p {
+    color: #fff;
+    font-size: 1.5rem;
+    animation: pulse 1.5s infinite;
+  }
+  /* 结算容器 */
+.ending-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1000;
+  }
+  
+  /* 全屏动画容器 */
+.fullscreen-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+}
+
+/* 信封动画调整 */
+.envelope-animation {
+    width: min(95vw, 700px); /* 进一步放大尺寸 */
+    animation: flyIn 2s ease-out forwards,stayLastFrame 0.1s 1s forwards;
+}
+
+@keyframes flyIn {
+    0% { 
+        transform: translateY(-100vh) rotate(-30deg);
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(10vh) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes stayLastFrame {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* 成绩卡片延迟显示 */
+.score-card {
+    animation: fadeIn 1s 1.5s forwards;
+}
+  
+  /* 成绩卡片 */
+  .score-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(219, 207, 192);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    opacity: 1;
+    animation: fadeIn 1s 2.2s forwards; /* 在动画完全停止后显示 */
+    width: 80%; /* 控制卡片宽度 */
+    max-width: 500px; /* 最大宽度防止过大 */
+    min-width: 300px; /* 最小宽度防止过小 */
+  }
+  /* 移动端适配 */
+@media (max-width: 768px) {
+    .score-card {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+.score-card h2 {
+    font-size: 2rem; /* 标题大小 */
+    margin-bottom: 1.5rem;
+}
+
+.grade {
+    font-size: 3.5rem; /* 成绩字母大小 */
+    margin: 1rem 0;
+}
+
+.comment {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.restart-btn {
+    padding: 12px 24px; /* 按钮尺寸 */
+    font-size: 1.1rem;
+}
+.hidden {
+    display: none!important;
+}
+.envelope-animation {
+        width: 1920px;
+        animation-duration: 2.2s, 0.7s; /* 移动端更慢 */
+}
+.score-card {
+        animation-delay: 3.5s; /* 同步延长延迟 */
+}
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+ /* 基础按钮样式 */
+.control-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(219, 207, 192, 0.9);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: #333 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 组合按钮容器 */
+.profile-group {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(219, 207, 192,0.9);
+    border-radius: 35px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+}
+
+/* 头像按钮 */
+.avatar-btn {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #dbcfc0;
+    border-radius: 50%;
+    padding: 2px;
+    overflow: hidden;
+    transition: inherit;
+}
+
+.avatar-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* 文字按钮 */
+.profile-text-btn {
+    padding: 0 20px 0 15px;
+    text-decoration: none;
+    color: #333 !important;
+    font-weight: bold;
+    white-space: nowrap;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    transition: inherit;
+}
+
+/* 悬停效果 */
+.profile-group:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+}
+
+/* 右侧按钮组 */
+.right-controls {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* 历史战绩弹窗优化 */
+.history-popup {
+    position: fixed; /* 改为固定定位 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    z-index: 2000; /* 高于其他元素 */
+    max-height: 70vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* 添加遮罩层 */
+.history-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1999;
+    backdrop-filter: blur(3px);
+}/* 成绩GIF样式 */
+.grade-gif {
+    position: fixed;
+    right: -200px;
+    bottom: -20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    z-index: 100;
+    opacity: 1;
+    animation: 
+        slideIn 0.5s 0.3s forwards,
+        float 2s 1s infinite;
+}
+
+/* 入场动画 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.9;
+    }
+}
+
+/* 浮动效果 */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 调整按钮位置 */
+.restart-btn {
+    position: relative;
+    z-index: 1; /* 确保按钮在gif上层 */
+}
