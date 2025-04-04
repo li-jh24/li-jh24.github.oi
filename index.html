@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表情包大冒险</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-image: url("images/bg.gif");
+          background-size: 80% 80%;
+          background-position: bottom 10px left 15px;
+          background-repeat: no-repeat;
+          background-attachment: fixed; /* 固定背景 */
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+    
+        /* 内容容器 */
+        .content {
+          position: relative;
+          padding: 20px;
+          color: white;
+          background: rgba(165, 81, 81, 0.5); /* 半透明背景增强文字可读性 */
+          max-width: 800px;
+          margin: 50px auto;
+          border-radius: 10px;
+        }
+      </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 替换原有左侧按钮为组合按钮 -->
+<div class="profile-group">
+    <a href="character.html" class="avatar-btn">
+        <img src="images/character_icon.png" alt="角色头像">
+    </a>
+    <a href="character.html" class="profile-text-btn">角色档案</a>
+</div>
+
+<!-- 右侧控制栏 -->
+<div class="control-group right-controls">
+    <a href="story.html" class="control-btn">📖 创作故事</a>
+    <button id="showHistory" class="control-btn">📜 历史战绩</button>
+</div>
+
+    <!-- 新增首页 -->
+    <div id="homepage" class="homepage">
+        <h1>期中生存大作战</h1>
+        <p>点击任意位置开始游戏</p>
+    </div>
+    
+    <!-- 游戏主容器 -->
+    <div class="game-container">
+        <!-- 场景文字区域 -->
+        <div id="scene-text" class="scene-text"></div>
+        <!-- 选项按钮容器 -->
+        <div id="options" class="options-container"></div>
+    </div>
+
+    <!-- 引入音效库和游戏逻辑 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="game.js"></script>
+
+   <!-- 替换原有结算容器 -->
+<div id="ending-container" class="ending-container" style="display: none;">
+    <!-- 独立动画容器（全屏） -->
+    <div class="fullscreen-animation">
+        <img src="images/envelope.gif" class="envelope-animation">
+    </div>
+    <!-- 成绩卡片（初始隐藏） -->
+    <div class="score-card hidden">
+        <h2>📜 最终成绩单</h2>
+        <div class="grade"></div>
+        <p class="comment"></p>
+        <button class="restart-btn">再战一次</button>
+    </div>
+</div> 
